@@ -1,0 +1,445 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const portfolioEntries = await getCollection('portfolio');
+const portfolioItems = [...portfolioEntries].sort((a, b) => b.data.year - a.data.year);
+---
+
+<Layout>
+  <header class="site-header">
+    <div class="page-shell header-inner">
+      <a href="#" class="brand">초록 디자인 스튜디오</a>
+
+      <nav class="nav" aria-label="메인 메뉴">
+        <a href="#about">소개</a>
+        <a href="#portfolio">포트폴리오</a>
+        <a href="#service">서비스</a>
+        <a href="/blog">블로그</a>
+        <a href="https://pf.kakao.com/_tYxaBX/chat" class="contact-btn" target="_blank">문의</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="page-shell hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">디자인 스튜디오</span>
+          <h1>복잡한 내용을<br />쉽고 설득력 있게.</h1>
+          <p>
+            초록 디자인 스튜디오는<br />
+            PPT, 제안서, UIUX를 보기 쉽고 설득력 있는 디자인으로 만듭니다.
+          </p>
+
+          <div class="cta-row">
+            <a href="#portfolio" class="btn primary">프로젝트 보기</a>
+            <a href="https://pf.kakao.com/_tYxaBX/chat" class="btn secondary" target="_blank">문의하기</a>
+          </div>
+        </div>
+
+        <div class="portfolio-visual" aria-label="디자인 작업물 예시">
+          <div class="visual-card">
+            <div class="visual-toolbar">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+
+            <div class="visual-panel">
+              <div class="placeholder-figure">
+                <div class="fig-header">
+                  <span>Proposal</span>
+                  <span>2026</span>
+                </div>
+                <div class="chart-box"></div>
+              </div>
+
+              <div class="mini-panel">
+                <div class="badge">Strategy</div>
+                <div class="stats">
+                  <div class="metric">
+                    <div>
+                      <strong>36</strong>
+                      <span>Projects</span>
+                    </div>
+                  </div>
+                  <div class="metric">
+                    <div>
+                      <strong>18</strong>
+                      <span>Clients</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="badge">Design System</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="portfolio">
+      <div class="page-shell">
+        <div class="section-head">
+          <div>
+            <div class="section-label">포트폴리오</div>
+            <h2>최근 작업물</h2>
+          </div>
+        </div>
+
+        <div class="works-grid">
+          {portfolioItems.map((item) => (
+            <article class="work-card">
+              <a href={`/portfolio/${item.id.replace(/\.md$/, '')}`} aria-label={`${item.data.title} 상세 페이지로 이동`}>
+                <div class="thumb" style={`background-image: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(82,122,90,0.16)), url('${item.data.thumbnail}')`}>
+                  <div class="thumb-inner"></div>
+                </div>
+                <div class="card-body">
+                  <div class="meta-row">
+                    <span>{item.data.category}</span>
+                    <span>{item.data.year}</span>
+                  </div>
+                  <h3 class="card-title">{item.data.title}</h3>
+                  <div class="card-footer">
+                    <span>{item.data.category}</span>
+                    <span class="arrow-btn">→</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="page-shell about-wrap">
+        <div class="about-box">
+          <div class="section-label">소개</div>
+          <h3>보기 좋은 디자인보다<br />이해되는 디자인을 만듭니다.</h3>
+          <p>
+            복잡한 정보를 정리하고,<br />
+            핵심 메시지가 자연스럽게 전달되는 구조를 설계합니다.<br />
+            기획부터 디자인까지 한 번에 진행합니다.
+          </p>
+        </div>
+
+        <div class="about-visual" aria-label="디자인 스튜디오 작업 예시"></div>
+      </div>
+    </section>
+
+    <section class="section" id="service">
+      <div class="page-shell">
+        <div class="section-head">
+          <div>
+            <div class="section-label">서비스</div>
+            <h2>명확한 디자인</h2>
+          </div>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon">PPT</div>
+            <h4>PPT · 제안서</h4>
+            <p>
+              발표 자료와 제안서를 구조적으로 정리해, 이해와 설득을 높이는 디자인을 제공합니다.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">UI</div>
+            <h4>UIUX 디자인</h4>
+            <p>
+              사용자 흐름과 정보 구조를 고려한 화면 설계로, 쉽고 편안한 디지털 경험을 만듭니다.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">문서</div>
+            <h4>기업 문서</h4>
+            <p>
+              기업 문서, 소개서, 브로슈어까지 메시지를 정리하고 시각적으로 전달할 수 있게 구성합니다.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="page-shell">
+        <div class="pricing-header-section">
+          <div class="section-label">가격</div>
+          <h2>이용 금액</h2>
+          <p class="pricing-subtitle">필요한 수준에 맞게<br />원하는 디자인을 선택하세요.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <div class="pricing-top">
+              <h3>Basic</h3>
+              <p class="pricing-description">텍스트 중심의 깔끔한 PPT 디자인</p>
+            </div>
+            <div class="pricing-amount">
+              <span class="price">11,000</span>
+              <span class="unit">원 / 장</span>
+            </div>
+            <ul class="pricing-features">
+              <li>원본 PPT 제공</li>
+              <li>상업적 이용 가능</li>
+              <li>작업 단위 1장</li>
+              <li>기본 레이아웃 정리</li>
+              <li>수정 1회</li>
+            </ul>
+          </article>
+
+          <article class="pricing-card featured">
+            <div class="pricing-badge">MOST POPULAR</div>
+            <div class="pricing-top">
+              <h3>Professional</h3>
+              <p class="pricing-description">이미지, 아이콘, 도표를 활용해 내용을 쉽고 설득력 있게 디자인</p>
+            </div>
+            <div class="pricing-amount">
+              <span class="price">22,000</span>
+              <span class="unit">원 / 장</span>
+            </div>
+            <ul class="pricing-features">
+              <li>원본 PPT 제공</li>
+              <li>상업적 이용 가능</li>
+              <li>작업 단위 1장</li>
+              <li>이미지 / 아이콘 활용</li>
+              <li>데이터 시각화</li>
+              <li>수정 2회</li>
+            </ul>
+          </article>
+
+          <article class="pricing-card">
+            <div class="pricing-top">
+              <h3>Enterprise</h3>
+              <p class="pricing-description">브랜드에 맞는 디자인과 인포그래픽을 적용한 고급 PPT / 제안서 디자인</p>
+            </div>
+            <div class="pricing-amount">
+              <span class="price">44,000</span>
+              <span class="unit">원 / 장</span>
+            </div>
+            <ul class="pricing-features">
+              <li>원본 PPT 제공</li>
+              <li>상업적 이용 가능</li>
+              <li>브랜드 스타일 반영</li>
+              <li>맞춤형 인포그래픽</li>
+              <li>고급 레이아웃 설계</li>
+              <li>수정 3회</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-banner" id="contact">
+      <div class="page-shell">
+        <div class="contact-inner">
+          <div class="contact-copy">
+            <h3>다음 프로젝트,<br />함께 만들어봐요.</h3>
+            <p>디자인으로 비즈니스의 가치를 높여드립니다.</p>
+          </div>
+          <a href="https://pf.kakao.com/_tYxaBX/chat" class="btn primary contact-btn" target="_blank">프로젝트 문의하기 →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="blog">
+    <div class="page-shell footer-inner">
+      <div class="footer-brand">CHOROK DESIGN STUDIO</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#blog">Blog</a>
+        <a href="https://pf.kakao.com/_tYxaBX/chat" target="_blank">Contact</a>
+      </div>
+      <div class="footer-copy">© 2026 CHOROK DESIGN STUDIO. All rights reserved.</div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  :root {
+    --bg: #111512;
+    --card: #181E1A;
+    --card-soft: #1D251F;
+    --primary: #B5E832;
+    --accent: #B5E832;
+    --text: #F3F4EF;
+    --muted: #A5ADA7;
+    --border: rgba(255,255,255,0.10);
+    --shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
+  }
+
+  .pricing-header-section {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .pricing-header-section .section-label {
+    display: inline-block;
+    padding: 0.5rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(181, 232, 50, 0.10);
+    color: var(--accent);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .pricing-header-section h2 {
+    margin: 0 0 18px;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.06em;
+    color: var(--text);
+  }
+
+  .pricing-subtitle {
+    margin: 0;
+    font-size: clamp(1.04rem, 1.8vw, 1.3rem);
+    line-height: 1.8;
+    color: var(--muted);
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .pricing-card {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 32px 26px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,0.18);
+  }
+
+  .pricing-card.featured {
+    background: linear-gradient(135deg, rgba(181, 232, 50, 0.08), rgba(181, 232, 50, 0.10));
+    border: 1px solid rgba(181, 232, 50, 0.52);
+    box-shadow: none;
+  }
+
+  .pricing-card.featured:hover {
+    border-color: rgba(181, 232, 50, 0.72);
+  }
+
+  .pricing-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1.2rem;
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 999px;
+  }
+
+  .pricing-top {
+    margin-bottom: 18px;
+  }
+
+  .pricing-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.4rem;
+    line-height: 1.3;
+    letter-spacing: -0.04em;
+    color: var(--text);
+  }
+
+  .pricing-description {
+    margin: 0;
+    font-size: 0.96rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .pricing-amount {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .pricing-amount .price {
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: var(--accent);
+  }
+
+  .pricing-amount .unit {
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+
+  .pricing-features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+  }
+
+  .pricing-features li {
+    padding: 10px 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--muted);
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .pricing-features li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  @media (max-width: 900px) {
+    .pricing-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .pricing-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .pricing-card {
+      padding: 28px 22px;
+    }
+
+    .pricing-amount .price {
+      font-size: 2rem;
+    }
+  }
+</style>
