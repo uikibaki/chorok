@@ -61,16 +61,6 @@ const { title, category, year, client, scope, shortDescription, overview, heroIm
         <div class="feature-visual-inner" style={`background-image: linear-gradient(135deg, rgba(181, 232, 50, 0.18), rgba(17, 21, 18, 0.72)), url('${heroImage}')`}></div>
       </div>
 
-      <section class="content-section split-section">
-        <div class="section-copy">
-          <span class="mini-label">Project Overview</span>
-          <h2>복잡한 내용을<br />쉽게 이해하도록 정리했습니다.</h2>
-        </div>
-        <div class="section-body">
-          <p>{overview}</p>
-        </div>
-      </section>
-
       <section class="gallery-section">
         <div class="gallery-grid">
           {galleryImages.slice(0, 4).map((image) => (
