@@ -758,6 +758,25 @@ img {
     height: 210px;
   }
 
+  .contact-inner {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 30px 22px;
+    text-align: center;
+  }
+
+  .contact-copy {
+    max-width: none;
+  }
+
+  .contact-inner h3 {
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
+  }
+
+  .contact-banner .contact-btn {
+    justify-self: center;
+  }
+
   .about-box {
     padding: 24px 20px;
   }
