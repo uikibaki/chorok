@@ -26,45 +26,6 @@ const portfolioItems = [...portfolioEntries].sort((a, b) => b.data.year - a.data
             <a href="#portfolio" class="btn secondary">포트폴리오 보기</a>
           </div>
         </div>
-
-        <div class="portfolio-visual" aria-label="디자인 작업물 예시">
-          <div class="visual-card">
-            <div class="visual-toolbar">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </div>
-
-            <div class="visual-panel">
-              <div class="placeholder-figure">
-                <div class="fig-header">
-                  <span>Proposal</span>
-                  <span>2026</span>
-                </div>
-                <div class="chart-box"></div>
-              </div>
-
-              <div class="mini-panel">
-                <div class="badge">Strategy</div>
-                <div class="stats">
-                  <div class="metric">
-                    <div>
-                      <strong>36</strong>
-                      <span>Projects</span>
-                    </div>
-                  </div>
-                  <div class="metric">
-                    <div>
-                      <strong>18</strong>
-                      <span>Clients</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="badge">Design System</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -80,14 +41,11 @@ const portfolioItems = [...portfolioEntries].sort((a, b) => b.data.year - a.data
         <div class="works-grid">
           {portfolioItems.map((item) => {
             const cardDescription = item.data.cardDescription || item.data.shortDescription;
-            const tags = item.data.tags?.length ? item.data.tags : ['#' + item.data.category.replace(/\s+/g, '')];
 
             return (
               <article class="work-card">
                 <a href={`/portfolio/${item.id.replace(/\.md$/, '')}`} aria-label={`${item.data.title} 상세 페이지로 이동`}>
-                  <div class="thumb" style={`background-image: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(82,122,90,0.16)), url('${item.data.thumbnail}')`}>
-                    <div class="thumb-inner"></div>
-                  </div>
+                  <img class="thumb" src={item.data.thumbnail} alt={`${item.data.title} 썸네일`} />
                   <div class="card-body">
                     <div class="meta-row">
                       <span>{item.data.category}</span>
@@ -95,13 +53,7 @@ const portfolioItems = [...portfolioEntries].sort((a, b) => b.data.year - a.data
                     </div>
                     <h3 class="card-title">{item.data.title}</h3>
                     <p class="card-description">{cardDescription}</p>
-                    <div class="card-tags">
-                      {tags.map((tag) => (
-                        <span>{tag}</span>
-                      ))}
-                    </div>
                     <div class="card-footer">
-                      <span>{item.data.category}</span>
                       <span class="arrow-btn">→</span>
                     </div>
                   </div>
@@ -125,7 +77,79 @@ const portfolioItems = [...portfolioEntries].sort((a, b) => b.data.year - a.data
           </p>
         </div>
 
-        <div class="about-visual" aria-label="디자인 스튜디오 작업 예시"></div>
+        <div class="about-visual" aria-label="네트워크 이해 설명 예시">
+          <svg viewBox="0 0 720 460" role="img" aria-label="네트워크 구조 설명도" class="about-diagram">
+            <rect x="0" y="0" width="720" height="460" fill="#eef2ef" rx="20"/>
+
+            <g font-family="Pretendard, 'Noto Sans KR', sans-serif">
+              <text x="48" y="44" fill="#6d7b75" font-size="18" font-weight="700"># 네트워크의 이해 (예시)</text>
+
+              <path d="M70 112 L220 70 L294 122 L300 244 L98 290 L58 208 Z" fill="#d9d7d2" stroke="#a8b0aa" stroke-width="2" fill-opacity="0.9"/>
+              <path d="M170 80 L250 118 L300 170 L268 246 L155 230 L120 168 Z" fill="#d3e9d3" stroke="#9fc89e" stroke-width="2"/>
+              <path d="M238 170 L366 120 L424 170 L390 250 L272 256 L228 210 Z" fill="#e9f5d1" stroke="#c8d8a5" stroke-width="2"/>
+              <path d="M112 182 L210 170 L242 260 L152 306 L84 242 Z" fill="#f2f0de" stroke="#c7c2a6" stroke-width="2"/>
+              <path d="M278 260 L410 208 L472 276 L438 338 L312 312 Z" fill="#d6ebf7" stroke="#8db0d4" stroke-width="2"/>
+              <path d="M320 110 L504 92 L552 170 L500 266 L386 252 L302 192 Z" fill="#dfe8eb" stroke="#a2b4b6" stroke-width="2"/>
+
+              <g fill="#2d7f73" font-size="16" font-weight="600">
+                <text x="120" y="130">서대문구</text>
+                <text x="230" y="150">종로구</text>
+                <text x="118" y="220">마포구</text>
+                <text x="246" y="310">중구</text>
+                <text x="380" y="210">용산구</text>
+              </g>
+
+              <g stroke="#8aa9b0" stroke-width="2" fill="none" stroke-dasharray="4 4">
+                <path d="M244 142 L360 142"/>
+                <path d="M244 208 L332 208"/>
+                <path d="M290 260 L390 195"/>
+                <path d="M200 206 L142 222"/>
+              </g>
+
+              <g>
+                <circle cx="170" cy="122" r="8" fill="#f2f2f2" stroke="#4a9b98" stroke-width="2"/>
+                <circle cx="210" cy="200" r="8" fill="#f2f2f2" stroke="#4a9b98" stroke-width="2"/>
+                <circle cx="286" cy="170" r="8" fill="#f2f2f2" stroke="#4a9b98" stroke-width="2"/>
+                <circle cx="338" cy="254" r="8" fill="#f2f2f2" stroke="#4a9b98" stroke-width="2"/>
+                <circle cx="412" cy="170" r="8" fill="#f2f2f2" stroke="#4a9b98" stroke-width="2"/>
+                <circle cx="488" cy="178" r="8" fill="#f2f2f2" stroke="#4a9b98" stroke-width="2"/>
+              </g>
+
+              <g>
+                <rect x="448" y="76" width="198" height="92" rx="12" fill="#f4d788" stroke="#d9c271" stroke-width="1.5"/>
+                <text x="470" y="108" fill="#1b2b33" font-size="21" font-weight="700">A 네트워크</text>
+                <rect x="470" y="120" width="150" height="30" rx="8" fill="#fffdf8" stroke="#d9c271"/>
+                <text x="490" y="140" fill="#1b2b33" font-size="16">서대문구</text>
+                <text x="580" y="140" fill="#1b2b33" font-size="16">+ 서울 OO 병원</text>
+                <rect x="470" y="156" width="150" height="30" rx="8" fill="#fffdf8" stroke="#d9c271"/>
+                <text x="490" y="176" fill="#1b2b33" font-size="16">마포구</text>
+                <text x="580" y="176" fill="#1b2b33" font-size="16">+ 서대문OO병원</text>
+              </g>
+
+              <g>
+                <rect x="448" y="178" width="198" height="88" rx="12" fill="#7ab6d8" stroke="#5d99c5" stroke-width="1.5"/>
+                <text x="470" y="210" fill="#1b2b33" font-size="21" font-weight="700">B 네트워크</text>
+                <rect x="470" y="222" width="150" height="28" rx="8" fill="#f5fbff" stroke="#7ab6d8"/>
+                <text x="488" y="240" fill="#1b2b33" font-size="15">목표 지역구 :</text>
+                <text x="580" y="240" fill="#1b2b33" font-size="15">+ 대흥 OO 병원</text>
+                <rect x="470" y="252" width="150" height="28" rx="8" fill="#f5fbff" stroke="#7ab6d8"/>
+                <text x="490" y="270" fill="#1b2b33" font-size="15">마포구</text>
+                <text x="582" y="270" fill="#1b2b33" font-size="15">+ 합정 OO병원</text>
+              </g>
+
+              <g>
+                <rect x="448" y="280" width="198" height="86" rx="12" fill="#a6d29b" stroke="#7fb27b" stroke-width="1.5"/>
+                <text x="470" y="312" fill="#1b2b33" font-size="21" font-weight="700">C 네트워크</text>
+                <rect x="470" y="324" width="150" height="28" rx="8" fill="#effaf0" stroke="#a6d29b"/>
+                <text x="488" y="342" fill="#1b2b33" font-size="15">목표 지역구 :</text>
+                <text x="582" y="342" fill="#1b2b33" font-size="15">+ 마포 OO 병원</text>
+                <rect x="470" y="354" width="150" height="28" rx="8" fill="#effaf0" stroke="#a6d29b"/>
+                <text x="490" y="372" fill="#1b2b33" font-size="15">마포구</text>
+                <text x="582" y="372" fill="#1b2b33" font-size="15">+ 문래 OO병원</text>
+              </g>
+            </g>
+          </svg>
+        </div>
       </div>
     </section>
 
@@ -354,30 +378,26 @@ const portfolioItems = [...portfolioEntries].sort((a, b) => b.data.year - a.data
   }
 
   .thumb {
-    height: 240px;
-    padding: 18px;
-    background: linear-gradient(135deg, rgba(29, 37, 31, 0.98) 0%, rgba(17, 21, 18, 1) 100%);
-    border-bottom: 1px solid var(--border);
-    overflow: hidden;
-  }
-
-  .thumb-inner {
+    display: block;
     width: 100%;
-    height: 100%;
-    border-radius: 18px;
-    background: linear-gradient(135deg, rgba(181, 232, 50, 0.08), rgba(255, 255, 255, 0.06));
-    position: relative;
+    height: 240px;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    object-fit: contain;
+    object-position: center;
     overflow: hidden;
-    transform: scale(1);
-    transition: transform 0.35s ease;
-  }
-
-  .work-card:hover .thumb-inner {
-    transform: scale(1.04);
+    box-shadow: none;
+    outline: none;
   }
 
   .card-body {
-    padding: 22px 20px 18px;
+    padding: 16px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 
   .meta-row {
@@ -386,53 +406,39 @@ const portfolioItems = [...portfolioEntries].sort((a, b) => b.data.year - a.data
     align-items: center;
     gap: 12px;
     color: var(--muted);
-    font-size: 0.74rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 12px;
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    margin-bottom: 10px;
   }
 
   .card-title {
     margin: 0 0 8px;
-    font-size: 1.28rem;
-    line-height: 1.4;
+    font-size: 1.22rem;
+    line-height: 1.45;
     color: var(--text);
+    letter-spacing: -0.03em;
   }
 
   .card-description {
     margin: 0 0 14px;
     color: var(--muted);
-    font-size: 0.96rem;
+    font-size: 0.92rem;
     line-height: 1.7;
     min-height: 3.2em;
-  }
-
-  .card-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 14px;
-  }
-
-  .card-tags span {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.38rem 0.56rem;
-    border-radius: 999px;
-    background: rgba(181, 232, 50, 0.08);
-    border: 1px solid rgba(181, 232, 50, 0.14);
-    color: var(--accent);
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .card-footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 16px;
-    margin-top: 18px;
+    margin-top: auto;
     color: var(--muted);
   }
 

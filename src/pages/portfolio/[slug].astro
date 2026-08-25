@@ -47,13 +47,13 @@ const { title, category, year, client, scope, shortDescription, overview, heroIm
       </div>
 
       <div class="feature-visual" aria-label="프로젝트 메인 이미지 영역">
-        <div class="feature-visual-inner" style={`background-image: linear-gradient(135deg, rgba(181, 232, 50, 0.18), rgba(17, 21, 18, 0.72)), url('${heroImage}')`}></div>
+        <img class="feature-visual-inner" src={heroImage} alt={`${title} 대표 이미지`} />
       </div>
 
       <section class="gallery-section">
         <div class="gallery-grid">
           {galleryImages.slice(0, 4).map((image) => (
-            <div class="gallery-item" style={`background-image: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(82,122,90,0.12)), url('${image}')`} />
+            <img class="gallery-item" src={image} alt={`${title} 작업 이미지`} />
           ))}
         </div>
       </section>
@@ -64,7 +64,8 @@ const { title, category, year, client, scope, shortDescription, overview, heroIm
           <div class="compare-grid">
             <div class="compare-box">
               <span class="compare-label">BEFORE</span>
-              <div class="compare-image" style={`background-image: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(82,122,90,0.12)), url('${beforeImage}')`}>
+              <div class="compare-image">
+                <img src={beforeImage} alt="기존 자료 이미지" />
                 <strong>기존 자료</strong>
               </div>
             </div>
@@ -73,7 +74,8 @@ const { title, category, year, client, scope, shortDescription, overview, heroIm
 
             <div class="compare-box">
               <span class="compare-label">AFTER</span>
-              <div class="compare-image" style={`background-image: linear-gradient(135deg, rgba(181, 232, 50, 0.18), rgba(17, 21, 18, 0.74)), url('${afterImage}')`}>
+              <div class="compare-image">
+                <img src={afterImage} alt="초록 리디자인 이미지" />
                 <strong>초록 리디자인</strong>
               </div>
             </div>
@@ -203,25 +205,26 @@ const { title, category, year, client, scope, shortDescription, overview, heroIm
     }
 
     .feature-visual {
-      background: linear-gradient(135deg, rgba(29, 37, 31, 0.98), rgba(17, 21, 18, 1));
+      width: min(1360px, 100%);
+      margin: 0 auto 56px;
+      padding: 0;
+      background: transparent;
       border: 1px solid var(--border);
-      border-radius: 28px;
-      min-height: 460px;
-      padding: 22px;
-      box-shadow: var(--shadow);
-      margin-bottom: 40px;
+      border-radius: 16px;
       overflow: hidden;
+      box-shadow: none;
+      line-height: 0;
     }
 
     .feature-visual-inner {
+      display: block;
       width: 100%;
       height: 100%;
-      min-height: 416px;
-      border-radius: 20px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      background-image: linear-gradient(135deg, rgba(181, 232, 50, 0.18), rgba(17, 21, 18, 0.72));
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      background: transparent;
+      border-radius: 16px;
+      border: 0;
     }
 
     .content-section {
@@ -283,20 +286,24 @@ const { title, category, year, client, scope, shortDescription, overview, heroIm
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+      grid-template-columns: 1fr;
+      gap: 36px;
+      width: min(1360px, 100%);
+      margin: 0 auto;
     }
 
     .gallery-item {
-      aspect-ratio: 4 / 3;
-      min-height: 0;
-      border-radius: 22px;
+      display: block;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      border-radius: 16px;
       border: 1px solid var(--border);
+      background: transparent;
       box-shadow: none;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-image: linear-gradient(135deg, rgba(181, 232, 50, 0.12), rgba(17, 21, 18, 0.82));
+      overflow: hidden;
+      line-height: 0;
     }
 
     .project-footer {
@@ -343,6 +350,20 @@ const { title, category, year, client, scope, shortDescription, overview, heroIm
       padding: clamp(32px, 5vw, 56px);
       margin-top: 62px;
       text-align: center;
+    }
+
+    .compare-image {
+      width: 100%;
+    }
+
+    .compare-image img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: #f4f4f1;
     }
 
     .contact-cta-inner h3 {
