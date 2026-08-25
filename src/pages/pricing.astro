@@ -1,22 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
 ---
 
 <Layout>
-  <header class="site-header">
-    <div class="page-shell header-inner">
-      <a href="/" class="brand">초록 디자인 스튜디오</a>
-
-      <nav class="nav" aria-label="메인 메뉴">
-        <a href="/">소개</a>
-        <a href="/#portfolio">포트폴리오</a>
-        <a href="/#service">서비스</a>
-        <a href="/pricing" class="active">가격</a>
-        <a href="/blog">블로그</a>
-        <a href="https://pf.kakao.com/_tYxaBX/chat" class="contact-btn" target="_blank">문의</a>
-      </nav>
-    </div>
-  </header>
+  <Header current="pricing" />
 
   <main class="pricing-page">
     <section class="section">

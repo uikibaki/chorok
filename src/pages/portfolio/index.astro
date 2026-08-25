@@ -1,0 +1,201 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+
+const portfolioEntries = await getCollection('portfolio');
+const portfolioItems = [...portfolioEntries].sort((a, b) => b.data.year - a.data.year);
+---
+
+<Layout>
+  <Header current="portfolio" />
+
+  <main class="portfolio-page">
+    <section class="page-shell section-head-wrap">
+      <div class="section-label">포트폴리오</div>
+      <h1>최근 작업물</h1>
+    </section>
+
+    <section class="page-shell">
+      <div class="works-grid">
+        {portfolioItems.map((item) => (
+          <article class="work-card">
+            <a href={`/portfolio/${item.id.replace(/\.md$/, '')}`} aria-label={`${item.data.title} 상세 페이지로 이동`}>
+              <div class="thumb" style={`background-image: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(82,122,90,0.16)), url('${item.data.thumbnail}')`}>
+                <div class="thumb-inner"></div>
+              </div>
+              <div class="card-body">
+                <div class="meta-row">
+                  <span>{item.data.category}</span>
+                  <span>{item.data.year}</span>
+                </div>
+                <h3 class="card-title">{item.data.title}</h3>
+                <div class="card-footer">
+                  <span>{item.data.category}</span>
+                  <span class="arrow-btn">→</span>
+                </div>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <style>
+    :root {
+      --bg: #111512;
+      --card: #181E1A;
+      --card-soft: #1D251F;
+      --primary: #B5E832;
+      --accent: #B5E832;
+      --text: #F3F4EF;
+      --muted: #A5ADA7;
+      --border: rgba(255, 255, 255, 0.10);
+      --shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
+    }
+
+    .portfolio-page {
+      background: var(--bg);
+      color: var(--text);
+      padding-bottom: 80px;
+      font-family: "Pretendard", "Segoe UI", sans-serif;
+    }
+
+    .section-head-wrap {
+      padding: 72px 0 24px;
+      text-align: center;
+    }
+
+    .section-label {
+      display: inline-block;
+      padding: 0.5rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(181, 232, 50, 0.10);
+      color: var(--accent);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .section-head-wrap h1 {
+      margin: 18px 0 0;
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -0.06em;
+      color: var(--text);
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .work-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .thumb {
+      height: 240px;
+      padding: 18px;
+      background: linear-gradient(135deg, rgba(29, 37, 31, 0.98) 0%, rgba(17, 21, 18, 1) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .thumb-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(181, 232, 50, 0.08), rgba(255, 255, 255, 0.06));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .thumb-inner::before {
+      content: "";
+      position: absolute;
+      inset: 22px auto 22px 22px;
+      width: 52%;
+      border-radius: 12px;
+      background: rgba(181, 232, 50, 0.12);
+    }
+
+    .thumb-inner::after {
+      content: "";
+      position: absolute;
+      right: 18px;
+      bottom: 16px;
+      width: 34%;
+      height: 52%;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .card-body {
+      padding: 22px 20px 18px;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      margin: 0 0 8px;
+      font-size: 1.28rem;
+      line-height: 1.4;
+      color: var(--text);
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .arrow-btn {
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: var(--card-soft);
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 960px) {
+      .works-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 540px) {
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>
