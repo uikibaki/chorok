@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { title, category, year, client, scope, shortDescription, overview, heroImage, galleryImages } = entry.data;
+const { title, category, year, client, scope, shortDescription, overview, heroImage, beforeImage, afterImage, galleryImages } = entry.data;
 ---
 
 <Layout>
@@ -57,6 +57,29 @@ const { title, category, year, client, scope, shortDescription, overview, heroIm
           ))}
         </div>
       </section>
+
+      {beforeImage && afterImage && (
+        <section class="before-after-section" aria-label="Before and After comparison">
+          <div class="section-label">Before / After</div>
+          <div class="compare-grid">
+            <div class="compare-box">
+              <span class="compare-label">BEFORE</span>
+              <div class="compare-image" style={`background-image: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(82,122,90,0.12)), url('${beforeImage}')`}>
+                <strong>기존 자료</strong>
+              </div>
+            </div>
+
+            <div class="compare-arrow" aria-hidden="true">→</div>
+
+            <div class="compare-box">
+              <span class="compare-label">AFTER</span>
+              <div class="compare-image" style={`background-image: linear-gradient(135deg, rgba(181, 232, 50, 0.18), rgba(17, 21, 18, 0.74)), url('${afterImage}')`}>
+                <strong>초록 리디자인</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <div class="project-footer">
         <a href="/portfolio/public-proposal" class="pager prev">
