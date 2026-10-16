@@ -1,7 +1,7 @@
 ---
 title: "베스트컨설팅 자동응답 챗봇"
 slug: "best-consulting-chatbot"
-category: "PPT"
+category: "Presentation Design"
 year: 2026
 client: "베스트컨설팅"
 scope: "회사소개서 / 서비스 소개 / PPT 디자인"
