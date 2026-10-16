@@ -3,8 +3,8 @@ title: "TALENT PARTNERS 기업소개서 디자인"
 slug: "education-uiux"
 category: "Presentation Design"
 year: 2026
-client: "가상의 포트폴리오"
-scope: "UX 리서치 / 사용자 흐름 / 인터페이스 디자인"
+client: "TALENT PARTNERS (가상 프로젝트)"
+scope: "기업소개서 기획 / 콘텐츠 구조화 / 인포그래픽 / PPT 디자인"
 shortDescription: "헤드헌팅 및 HR 컨설팅 기업을 주제로, 기업의 전문성과 핵심 경쟁력을 효과적으로 전달할 수 있도록 구성한 가상의 회사소개서 디자인 프로젝트입니다."
 cardDescription: "기업 개요, 연혁, 제안 배경, 핵심 경쟁력 등 다양한 정보를 시각적으로 구조화하여 전달력과 가독성을 높이는 데 중점을 두었습니다."
 tags:
