@@ -214,5 +214,133 @@ const portfolioItems = [...portfolioEntries].sort((a, b) => b.data.year - a.data
         grid-template-columns: 1fr;
       }
     }
+
+
+
+/* 포트폴리오 목록 하단 문의하기 */
+.portfolio-contact {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin: 88px auto 0;
+  padding: 100px 24px;
+  border: 1px solid rgba(181, 232, 50, 0.15);
+  border-radius: 32px;
+  text-align: center;
+  background:
+    radial-gradient(
+      ellipse at 50% 110%,
+      rgba(181, 232, 50, 0.13),
+      transparent 70%
+    ),
+    #111512;
+}
+
+.portfolio-contact::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 150%;
+  height: 650px;
+  left: -25%;
+  top: 35px;
+  border: 1px solid rgba(181, 232, 50, 0.14);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.portfolio-contact-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-eyebrow {
+  color: #B5E832;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin-bottom: 24px;
+}
+
+.portfolio-contact h2 {
+  margin: 0;
+  color: #F3F4EF;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.055em;
+  word-break: keep-all;
+}
+
+.portfolio-contact h2 span {
+  color: #B5E832;
+}
+
+.portfolio-contact p {
+  margin: 22px 0 32px;
+  color: #A5ADA7;
+  font-size: 16px;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+
+.portfolio-contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  min-width: 275px;
+  padding: 19px 30px;
+  border-radius: 999px;
+  background: #B5E832;
+  color: #111512;
+  font-size: 16px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.portfolio-contact-button:hover {
+  background: #C9F34C;
+  transform: translateY(-3px);
+}
+
+.portfolio-contact-button span {
+  font-size: 23px;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .portfolio-contact {
+    margin-top: 60px;
+    padding: 75px 18px;
+    border-radius: 24px;
+  }
+
+  .portfolio-contact h2 {
+    font-size: 29px;
+  }
+
+  .portfolio-contact p {
+    font-size: 14px;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .portfolio-contact-button {
+    min-width: 240px;
+    padding: 17px 24px;
+  }
+}
+
+
+
   </style>
 </Layout>
