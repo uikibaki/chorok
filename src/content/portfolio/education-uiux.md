@@ -16,6 +16,7 @@ challenge: "기업 연혁과 사업 영역, 채용 서비스의 필요성, 핵�
 approach: "기업의 신뢰성을 강조하는 네이비 기반의 디자인 시스템을 적용했습니다. 연혁은 타임라인으로, 채용 방식 비교는 수치 중심으로, 핵심 경쟁력은 아이콘과 반복형 카드 레이아웃으로 구성하여 정보의 특성에 맞는 시각화 방식을 적용했습니다."
 result: "기업의 전문성과 핵심 경쟁력을 효과적으로 전달하는 회사소개서 디자인"
 thumbnail: "/images/portfolio/talent-partners/ta-01.png"
+heroImage: "/images/portfolio/talent-partners/ta-01.png"
 galleryImages:
   - "/images/portfolio/talent-partners/ta-01.png"
   - "/images/portfolio/talent-partners/ta-02.png"
