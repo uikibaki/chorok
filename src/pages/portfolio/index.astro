@@ -15,6 +15,7 @@ const portfolioItems = [...portfolioEntries].sort((a, b) => b.data.year - a.data
       <div class="section-label">포트폴리오</div>
       <h1>최근 작업물</h1>
     </section>
+<br><br>
 
     <section class="page-shell">
       <div class="works-grid">
@@ -31,7 +32,6 @@ const portfolioItems = [...portfolioEntries].sort((a, b) => b.data.year - a.data
                 </div>
                 <h3 class="card-title">{item.data.title}</h3>
                 <div class="card-footer">
-                  <span>{item.data.category}</span>
                   <span class="arrow-btn">→</span>
                 </div>
               </div>
@@ -148,6 +148,7 @@ const portfolioItems = [...portfolioEntries].sort((a, b) => b.data.year - a.data
       font-size: 1.28rem;
       line-height: 1.4;
       color: var(--text);
+      height: calc(1.28rem * 1.4 * 2);
     }
 
     .card-footer {
