@@ -1,0 +1,1 @@
+TALENT PARTNERS portfolio images
