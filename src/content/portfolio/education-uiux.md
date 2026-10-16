@@ -15,11 +15,11 @@ overview: "헤드헌팅 및 HR 컨설팅 기업의 전문성과 핵심 경쟁력
 challenge: "기업 연혁과 사업 영역, 채용 서비스의 필요성, 핵심 경쟁력처럼 성격이 다른 정보를 제한된 슬라이드 안에서 명확하게 전달하는 것이 핵심 과제였습니다. 특히 긴 설명문과 비교 수치, 경쟁력 항목을 한눈에 이해할 수 있도록 시각적으로 정리할 필요가 있었습니다."
 approach: "기업의 신뢰성을 강조하는 네이비 기반의 디자인 시스템을 적용했습니다. 연혁은 타임라인으로, 채용 방식 비교는 수치 중심으로, 핵심 경쟁력은 아이콘과 반복형 카드 레이아웃으로 구성하여 정보의 특성에 맞는 시각화 방식을 적용했습니다."
 result: "기업의 전문성과 핵심 경쟁력을 효과적으로 전달하는 회사소개서 디자인"
-thumbnail: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
-heroImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80"
+thumbnail: "/images/portfolio/emergency-network-manual/ta-01.png"
+heroImage: "/images/portfolio/emergency-network-manual/ta-01.png"
 galleryImages:
-  - "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
-  - "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
-  - "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
-  - "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
+  - "/images/portfolio/emergency-network-manual/ta-01.png"
+  - "/images/portfolio/emergency-network-manual/ta-02.png"
+  - "/images/portfolio/emergency-network-manual/ta-03.png"
+  - "/images/portfolio/emergency-network-manual/ta-04.png"
 ---
