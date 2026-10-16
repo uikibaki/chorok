@@ -46,42 +46,16 @@ const { title, category, year, client, scope, shortDescription, overview, heroIm
         </div>
       </div>
 
-      <div class="feature-visual" aria-label="프로젝트 메인 이미지 영역">
-        <img class="feature-visual-inner" src={heroImage} alt={`${title} 대표 이미지`} />
-      </div>
+
 
       <section class="gallery-section">
         <div class="gallery-grid">
-          {galleryImages.slice(0, 4).map((image) => (
+          {galleryImages.slice(0, 10).map((image) => (
             <img class="gallery-item" src={image} alt={`${title} 작업 이미지`} />
           ))}
         </div>
       </section>
 
-      {beforeImage && afterImage && (
-        <section class="before-after-section" aria-label="Before and After comparison">
-          <div class="section-label">Before / After</div>
-          <div class="compare-grid">
-            <div class="compare-box">
-              <span class="compare-label">BEFORE</span>
-              <div class="compare-image">
-                <img src={beforeImage} alt="기존 자료 이미지" />
-                <strong>기존 자료</strong>
-              </div>
-            </div>
-
-            <div class="compare-arrow" aria-hidden="true">→</div>
-
-            <div class="compare-box">
-              <span class="compare-label">AFTER</span>
-              <div class="compare-image">
-                <img src={afterImage} alt="초록 리디자인 이미지" />
-                <strong>초록 리디자인</strong>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
 
       <div class="project-footer">
         <a href="/portfolio/public-proposal" class="pager prev">
