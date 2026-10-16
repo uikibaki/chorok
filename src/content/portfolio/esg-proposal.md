@@ -18,8 +18,8 @@ result: "챗봇 서비스에 대한 이해도를 높이고, 베스트컨설팅�
 thumbnail: "/images/portfolio/best-consulting/thumb.png"
 heroImage: "/images/portfolio/best-consulting/hero.png"
 galleryImages:
+  - "/images/portfolio/best-consulting/gallery-4.png"
   - "/images/portfolio/best-consulting/gallery-1.png"
   - "/images/portfolio/best-consulting/gallery-2.png"
   - "/images/portfolio/best-consulting/gallery-3.png"
-  - "/images/portfolio/best-consulting/gallery-4.png"
 ---
