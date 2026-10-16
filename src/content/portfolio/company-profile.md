@@ -1,7 +1,7 @@
 ---
 title: "중증응급 심뇌혈관 네트워크 운영 매뉴얼"
 slug: "emergency-network-manual"
-category: "운영 매뉴얼"
+category: "User Manual"
 year: 2025
 client: "중증응급 심뇌혈관센터"
 scope: "운영 매뉴얼 / PPT 디자인 / 정보 시각화"
