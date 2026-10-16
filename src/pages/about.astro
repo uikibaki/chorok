@@ -37,6 +37,36 @@ import Header from '../components/Header.astro';
         </article>
       </div>
     </section>
+
+
+<section class="contact-cta-section">
+  <div class="contact-cta-inner">
+    <span class="contact-eyebrow">LET'S WORK TOGETHER</span>
+
+    <h2>
+      당신의 프로젝트를<br />
+      <span>더 설득력 있게</span> 만들어드립니다
+    </h2>
+
+    <p>
+      기획부터 디자인까지, 초록 디자인 스튜디오가<br class="desktop-only" />
+      맞춤형 솔루션으로 함께합니다.
+    </p>
+
+    <a
+      href="https://pf.kakao.com/_tYxaBX/chat"
+      class="contact-button"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      지금 바로 문의하기
+      <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</section>
+
+
+
   </main>
 
   <style>
@@ -141,5 +171,140 @@ import Header from '../components/Header.astro';
         grid-template-columns: 1fr;
       }
     }
+
+
+
+
+
+/* 중앙 정렬 문의하기 섹션 */
+.contact-cta-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin-top: 88px;
+  padding: 100px 24px 105px;
+  text-align: center;
+  border-radius: 32px;
+  border: 1px solid rgba(181, 232, 50, 0.12);
+  background:
+    radial-gradient(
+      ellipse at 50% 110%,
+      rgba(181, 232, 50, 0.13) 0%,
+      rgba(181, 232, 50, 0.035) 40%,
+      transparent 75%
+    ),
+    #111512;
+}
+
+/* 은은한 곡선 장식 */
+.contact-cta-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 150%;
+  height: 700px;
+  left: -25%;
+  top: 30px;
+  border: 1px solid rgba(181, 232, 50, 0.16);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.contact-cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-eyebrow {
+  color: #B5E832;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin-bottom: 24px;
+}
+
+.contact-cta-inner h2 {
+  margin: 0;
+  color: #F3F4EF;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.055em;
+  word-break: keep-all;
+}
+
+.contact-cta-inner h2 span {
+  color: #B5E832;
+}
+
+.contact-cta-inner p {
+  margin: 22px 0 32px;
+  color: #A5ADA7;
+  font-size: 16px;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+
+.contact-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  min-width: 275px;
+  padding: 19px 30px;
+  border-radius: 999px;
+  background: #B5E832;
+  color: #111512;
+  font-size: 16px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.contact-button:hover {
+  background: #C9F34C;
+  transform: translateY(-3px);
+}
+
+.contact-button span {
+  font-size: 23px;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .contact-cta-section {
+    margin-top: 60px;
+    padding: 75px 18px;
+    border-radius: 24px;
+  }
+
+  .contact-cta-inner h2 {
+    font-size: 29px;
+  }
+
+  .contact-cta-inner p {
+    font-size: 14px;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .contact-button {
+    min-width: 240px;
+    padding: 17px 24px;
+  }
+}
+
+
+
+
+
+
   </style>
 </Layout>
